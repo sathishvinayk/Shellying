@@ -1,13 +1,14 @@
 #!bin/sh
 #Finding the path
-SPTH='/mnt/us/documents'
+SPTH='/var/local/java/prefs'
+PTHC='/mnt/us/documents'
 pid=$$
 #use to check or exit
-if [ -f "$SPTH/example.conf" ];
+if [ -f "$SPTH/ContentPackages.preferences" ];
 then
-   echo "File $FILE exist."
+   echo "File $SPTH exist."
 else
-   echo "File $FILE does not exist, Existing out of loop" >&2
+   echo "File $SPTH does not exist, Existing out of loop" >&2
    kill -9 $pid
 fi
 
@@ -21,8 +22,7 @@ fi
 
 #Functioning out
 edit_file(){
-  sed 's#user.web=.*#user.web=http://This 2012 is march#' $SPTH/example.conf > $SPTH/changed.conf && mv $SPTH/changed.conf $SPTH/example.conf
-  echo "Updated the conf file"
-  sed -n 5p $SPTH/example.conf
+  sed 's#ja.font.version=.*#ja.font.version=2012-05-05#' $SPTH/ContentPackages.preferences > $SPTH/changed.preferences && mv $SPTH/changed.preferences $SPTH/ContentPackages.preferences
+  sed -n 4p $SPTH/ContentPackages.preferences
 }
 edit_file
