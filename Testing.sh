@@ -19,15 +19,23 @@ else
     echo "Sorry, you are too slow!"
 fi
 
+#Countdown timer
+secs=$((1 * 05))
+while [ $secs -gt 0 ]; do
+   echo -ne "Rebooting in $secs\033[0K\r"
+   sleep 1
+   : $((secs--))
+done
+
 #Main subject
 Japanese(){
-    sed 's#user.web=.*#user.web=http://Domar_DOMAIN#' $SPTH/example.conf > $SPTH/changed.conf && mv $SPTH/changed.conf $SPTH/example.conf
+    sed 's#user.web=.*#user.web=http://Returnig#' $SPTH/example.conf > $SPTH/changed.conf && mv $SPTH/changed.conf $SPTH/example.conf
     echo "Updated the conf file"
     sed -n 5p $SPTH/example.conf
 }
 
 Korean(){
-    sed 's#user.web=.*#user.web=http://Domar_DOMAIN#' $SPTH/item.conf > $SPTH/change.conf && mv $SPTH/change.conf $SPTH/item.conf
+    sed 's#user.web=.*#user.web=http://Returng#' $SPTH/item.conf > $SPTH/change.conf && mv $SPTH/change.conf $SPTH/item.conf
     echo "Updated the conf file"
     sed -n 5p $SPTH/example.conf
 }
